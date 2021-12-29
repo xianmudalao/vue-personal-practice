@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "axios": "^0.24.0",
+    "fs": "^0.0.1-security",
     "naive-ui": "^2.23.0",
     "nprogress": "^0.2.0",
     "pinia": "^2.0.0-rc.10",
@@ -36,6 +37,7 @@
     "mrm": "^3.0.10",
     "prettier": "^2.5.1",
     "sass": "^1.45.0",
+    "svg-sprite-loader": "^6.0.11",
     "typescript": "^4.4.4",
     "vite": "^2.7.2",
     "vue-tsc": "^0.29.8"
