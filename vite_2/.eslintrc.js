@@ -13,6 +13,7 @@ module.exports = {
     "plugin:prettier/recommended",
     // eslint-config-prettier 的缩写
     "prettier",
+    "vue-global-api",
   ],
   parserOptions: {
     ecmaVersion: 12,
@@ -41,7 +42,7 @@ module.exports = {
     // 禁止出现console
     "no-console": "off",
     // 禁用debugger
-    "no-debugger": "warn",
+    "no-debugger": "off",
     // 禁止出现重复的 case 标签
     "no-duplicate-case": "warn",
     // 禁止出现空语句块

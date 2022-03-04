@@ -5,96 +5,53 @@
     </div>
     <div class="form">
       <SvgIcon name="moon" />
-
-      <a-form
-        :model="formState"
-        name="normal_login"
-        class="login-form"
-        @finish="onFinish"
-        @finish-failed="onFinishFailed"
-      >
-        <a-form-item
-          label="Username"
-          name="username"
-          :rules="[{ required: true, message: 'Please input your username!' }]"
+      <div class="form-user">
+        <el-form
+          class="loginForm"
+          :model="loginForm"
+          label-position="left"
+          autocomplete="on"
         >
-          <a-input v-model:value="formState.username">
-            <template #prefix>
-              <UserOutlined class="site-form-item-icon" />
-            </template>
-          </a-input>
-        </a-form-item>
-
-        <a-form-item
-          label="Password"
-          name="password"
-          :rules="[{ required: true, message: 'Please input your password!' }]"
-        >
-          <a-input-password v-model:value="formState.password">
-            <template #prefix>
-              <LockOutlined class="site-form-item-icon" />
-            </template>
-          </a-input-password>
-        </a-form-item>
-
-        <div class="login-form-wrap">
-          <a-form-item name="remember" no-style>
-            <a-checkbox v-model:checked="formState.remember"
-              >Remember me</a-checkbox
-            >
-          </a-form-item>
-          <a class="login-form-forgot">Forgot password</a>
-        </div>
-
-        <a-form-item>
-          <a-button
-            :disabled="disabled"
-            type="primary"
-            html-type="submit"
-            class="login-form-button"
-            >Log in</a-button
-          >Or
-          <a>register now!</a>
-        </a-form-item>
-      </a-form>
+          <el-form-item prop="userName">
+            <User style="width: 1em; height: 1em; margin-right: 8px" />
+            <el-input
+              v-model="loginForm.userName"
+              type="text"
+              tabindex="1"
+              autocomplete="on"
+            ></el-input>
+          </el-form-item>
+          <el-form-item prop="userPassword">
+            <Lock style="width: 1em; height: 1em; margin-right: 8px" />
+            <el-input
+              v-model="loginForm.userPassword"
+              type="text"
+              tabindex="2"
+              autocomplete="on"
+            ></el-input>
+          </el-form-item>
+        </el-form>
+      </div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import SvgIcon from "@/components/Svg/SvgIcon.vue";
-import { UserOutlined, LockOutlined } from "@ant-design/icons-vue";
-import { defineComponent, computed, reactive, toRefs } from "vue";
 
 interface FormState {
-  username: string;
-  password: string;
-  remember: boolean;
+  userName: string;
+  userPassword: string;
 }
 export default defineComponent({
-  components: { SvgIcon, UserOutlined, LockOutlined },
+  components: { SvgIcon },
   setup() {
-    const formState = reactive<FormState>({
-      username: "",
-      password: "",
-      remember: true,
-    });
-
-    const onFinish = (values: any) => {
-      console.log("Success:", values);
-    };
-
-    const onFinishFailed = (errorInfo: any) => {
-      console.log("Failed:", errorInfo);
-    };
-    const disabled = computed(() => {
-      return !(formState.username && formState.password);
+    const loginForm = reactive<FormState>({
+      userName: "",
+      userPassword: "",
     });
     return {
-      formState,
-      onFinish,
-      onFinishFailed,
-      disabled,
+      loginForm,
     };
   },
 });
@@ -125,6 +82,11 @@ export default defineComponent({
     top: 50%;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
+    &-user {
+      padding: 24px;
+      background-color: #fff;
+      border-radius: 4px;
+    }
   }
 }
 </style>
