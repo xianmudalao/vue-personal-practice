@@ -1,6 +1,7 @@
 {
   "name": "vite_2",
   "version": "0.0.0",
+  "license": "MIT",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
@@ -12,6 +13,8 @@
     "build:pro": "vite build --mode production"
   },
   "dependencies": {
+    "@ant-design/icons-vue": "^6.0.1",
+    "ant-design-vue": "3.0.0-alpha.16",
     "particles.vue3": "^1.41.4",
     "pinia": "^2.0.0-rc.10",
     "vue": "^3.2.25",

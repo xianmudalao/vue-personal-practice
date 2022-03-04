@@ -35,6 +35,7 @@ export default defineConfig({
         additionalData: `@import '@/assets/style/main.scss';`,
       },
     },
+    modules: false,
   },
   server: {
     host: "0.0.0.0",
@@ -43,12 +44,16 @@ export default defineConfig({
     https: false,
     proxy: {},
   },
-  build: {
-    terserOptions: {
-      compress: {
-        drop_console: true,
-        drop_debugger: true,
-      },
-    },
-  },
+  // build: {
+  //   target: "es2015",
+  //   cssTarget: "chrome86",
+  //   outDir: "dist",
+  //   terserOptions: {
+  //     compress: {
+  //       keep_infinity: true,
+  //       drop_console: true,
+  //       drop_debugger: true,
+  //     },
+  //   },
+  // },
 });

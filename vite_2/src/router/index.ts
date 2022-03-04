@@ -14,13 +14,22 @@ const routes: RouteRecordRaw[] = [
   {
     path: "/",
     name: "Login",
-    component: () => import("@/view/login/login-main.vue"), // 注意这里要带上 文件后缀.vue
+    component: () => import("@/view/login/Index.vue"), // 注意这里要带上 文件后缀.vue
   },
 ];
+
+// 权限路由
+export const asyncRoutes: Array<RouteRecordRaw> = [];
 
 const router = createRouter({
   history: createWebHistory(),
   routes,
 });
+
+// 重置路由
+export function resetRouter() {
+  const newRouter = router;
+  (router as any).matcher = (newRouter as any).matcher;
+}
 
 export default router;
