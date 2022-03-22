@@ -141,7 +141,7 @@ module.exports = {
     "prefer-rest-params": "warn",
     "no-useless-escape": "warn",
     "no-irregular-whitespace": "warn",
-    "no-prototype-builtins": "warn",
+    "no-prototype-builtins": "off",
     "no-fallthrough": "warn",
     "no-extra-boolean-cast": "warn",
     "no-case-declarations": "warn",

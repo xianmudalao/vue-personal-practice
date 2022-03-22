@@ -3,6 +3,7 @@ import vue from "@vitejs/plugin-vue";
 import path from "path";
 import ViteSvgIconsPlugin from "vite-plugin-svg-icons";
 import viteCompression from "vite-plugin-compression";
+// import ElementPlus from "unplugin-element-plus/vite";
 
 //
 import Components from "unplugin-vue-components/vite";
@@ -18,18 +19,18 @@ export default (): UserConfigExport => {
   return {
     plugins: [
       vue(),
+      // ElementPlus(),
       createStyleImportPlugin({
         resolves: [ElementPlusResolve()],
         libs: [
           {
             libraryName: "element-plus",
             esModule: true,
-            resolveStyle: (name: string) => {
-              name = name.substring(3, name.length);
-              return `element-plus/es/components/${name}/style/index`;
+            resolveStyle(name: string) {
+              return `element-plus/theme-chalk/${name}.css`;
             },
           },
-        ], // 自定义规则
+        ],
       }),
       AutoImport({
         resolvers: [ElementPlusResolver()],

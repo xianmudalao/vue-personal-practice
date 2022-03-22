@@ -6,29 +6,17 @@
     <div class="form">
       <SvgIcon name="moon" />
       <div class="form-user">
-        <el-form
-          class="loginForm"
-          :model="loginForm"
-          label-position="left"
-          autocomplete="on"
-        >
+        <el-form class="loginForm" :model="loginForm" label-position="left" autocomplete="on">
           <el-form-item prop="userName">
             <User style="width: 1em; height: 1em; margin-right: 8px" />
-            <el-input
-              v-model="loginForm.userName"
-              type="text"
-              tabindex="1"
-              autocomplete="on"
-            ></el-input>
+            <el-input v-model="loginForm.userName" type="text" tabindex="1" autocomplete="on"></el-input>
           </el-form-item>
           <el-form-item prop="userPassword">
             <Lock style="width: 1em; height: 1em; margin-right: 8px" />
-            <el-input
-              v-model="loginForm.userPassword"
-              type="text"
-              tabindex="2"
-              autocomplete="on"
-            ></el-input>
+            <el-input v-model="loginForm.userPassword" type="text" tabindex="2" autocomplete="on"></el-input>
+          </el-form-item>
+          <el-form-item>
+            <el-button @click="showPop('open')">弹窗</el-button>
           </el-form-item>
         </el-form>
       </div>
@@ -43,6 +31,7 @@ interface FormState {
   userName: string;
   userPassword: string;
 }
+type PopStatus = (state: string) => void;
 export default defineComponent({
   components: { SvgIcon },
   setup() {
@@ -50,8 +39,12 @@ export default defineComponent({
       userName: "",
       userPassword: "",
     });
+    const showPop: PopStatus = () => {
+      console.log('123')
+    };
     return {
       loginForm,
+      showPop,
     };
   },
 });

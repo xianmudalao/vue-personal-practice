@@ -16,6 +16,11 @@ const routes: RouteRecordRaw[] = [
     name: "Login",
     component: () => import("@/view/login/Index.vue"), // 注意这里要带上 文件后缀.vue
   },
+  {
+    path: "/main",
+    name: "Lain",
+    component: () => import("@/view/main/Index.vue"), // 注意这里要带上 文件后缀.vue
+  },
 ];
 
 // 权限路由
